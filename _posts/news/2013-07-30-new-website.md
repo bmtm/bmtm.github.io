@@ -4,7 +4,7 @@ category: news
 title: Jack Qiao wins election for President
 author: Jack Qiao
 ---
-<img src="images/morsi.png" alt="the deposed leader" />
+<img src="/images/morsi.png" alt="the deposed leader" />
 
 In a stunning upset, Jack Qiao has been crowned “King of BMTM” by the collective will of its members. Thunderous applause echoed through SFU’s hallways this Wednesday evening as the unprecedented event took place. 
 
