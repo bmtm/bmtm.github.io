@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BMTM | {{ page.title }}</title>
+
+    <link rel="stylesheet" href="{{ site.baseurl }}/global.css" type="text/css" media="screen" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+	<script src="{{ site.baseurl }}/global.js"></script>
+	
+	<!-- calendar -->
+	<link href='{{ site.baseurl }}/fullcalendar/fullcalendar.css' rel='stylesheet' />
+	<link href='{{ site.baseurl }}/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+	<script src='{{ site.baseurl }}/fullcalendar/fullcalendar.min.js'></script>
+</head>
+
+<body>
+
+<div class="wrapper">
+	
+	<h1 id="logo"><a href="{{ site.baseurl }}/"><span class="hidden">Burnaby Mountain Toastmasters</span></a></h1>
+	<ul id="nav">
+	<li{% if page.url == '/about/index.html' %} class="active"{% endif %}><a href="{{ site.baseurl }}/about/"><img src="{{ site.baseurl }}/images/about.png" alt="About Icon" /> About BMTM</a></li>
+	<li{% if page.url == '/calendar/index.html' %} class="active"{% endif %}><a href="{{ site.baseurl }}/calendar/"><img src="{{ site.baseurl }}/images/calendar.png" alt="Calendar Icon" /> Calendar</a></li>
+	<li{% if page.url == '/contact/index.html' %} class="active"{% endif %}><a href="{{ site.baseurl }}/contact/"><img src="{{ site.baseurl }}/images/contact.png" alt="Contact Icon" /> Contact</a></li>
+	</ul>
+</div>
+
+
+
+	<div id="meetings"{% if page.showmeetings != true %} class="hidden" {% endif %}>
+		<div class="wrapper">
+			{% for meeting in site.categories.meeting limit:1 %}
+				<div id="meetinginfo">
+				<h1 rel="{{ meeting.date }}">Next Meeting on {{ meeting.date | date: "%B %d" }}</h1>
+				<h2>Time &amp; Place</h2>
+				{{ meeting.date | date: "%I:%M %p" }} at Simon Fraser University - WMC 2320 <a href="http://www.sfu.ca/fs/files/Campus_Profile/Building_Information/Maggie_Benston_Centre/MBC_map.jpg" target="_blank"><img src="{{ site.baseurl }}/images/mapicon.png" alt="map" /></a>
+				<hr />
+				<h2>Prepared Speeches</h2>
+				{{ meeting.prepared_speeches }}
+				<hr />
+				<h2>Table Topics</h2>
+				{{ meeting.table_topics }}
+				<a class="button" href="{{ site.baseurl }}/meetings">Archives</a>
+				</div>
+				{% if meeting.youtube %}
+					<iframe id="meetingvideo" src="//www.youtube.com/embed/{{ meeting.youtube }}" frameborder="0" allowfullscreen></iframe>
+				{% else %}
+					{% for video in site.categories.meeting %}
+						{% if video.youtube %}
+							<iframe id="meetingvideo" src="//www.youtube.com/embed/{{ video.youtube }}" frameborder="0" allowfullscreen></iframe>
+							{% break %}
+						{% endif %}
+					{% endfor %}
+				{% endif %}
+			{% endfor %}
+		</div>
+		<a href="#" id="meetingsexpand"></a>
+	</div>
+	
+	
+<div class="wrapper">
+	<!-- our members -->
+
+	<ul id="members">
+	{% for member in site.categories.member limit: 20 %}
+		<li>
+			<span class="profile">
+				{% if member.facebookid %}
+				<img src="http://graph.facebook.com/{{ member.facebookid }}/picture?type=large" alt="Facebook Profile Photo" />
+				{% endif %}
+			</span>
+			<h2><a href="{{ site.baseurl }}{{ member.url }}">{{ member.title }}</a></h2>
+			{{ member.role }}
+		</li>
+	{% endfor %}
+	</ul>
+	
+	<div id="content">
+	{{ content }}
+	</div>
+</div>
+
+<div id="footer">
+	<div class="wrapper">
+	<a href="http://sfu.ca" target="_blank">Simon Fraser University</a> &nbsp;&nbsp; | &nbsp;&nbsp; <a href="http://www.toastmasters.org" target="_blank">Toastmasters International</a>
+	</div>
+</div>
+</body>
+</html>

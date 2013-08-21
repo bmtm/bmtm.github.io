@@ -1,0 +1,12 @@
+---
+layout: default
+---
+
+<h1>{{ page.title }}</h1>
+<div class="byline">Starts on {{ page.date | date: "%B %d, %Y %I:%M %p" }}</div>
+{% if page.enddate %}
+<div class="byline">Ends on {{ page.enddate | date: "%B %d, %Y %I:%M %p" }}</div>
+{% endif %}
+
+
+{{ page.content | markdownify }}

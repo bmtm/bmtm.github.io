@@ -1,0 +1,11 @@
+---
+layout: default
+---
+
+{% if page.facebookid %}
+<img class="profile" src="http://graph.facebook.com/{{ page.facebookid }}/picture?type=large" alt="Facebook Profile Photo" />
+{% endif %}
+
+<h1>About {{ page.title }}</h1>
+
+{{ content }}

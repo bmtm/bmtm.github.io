@@ -1,0 +1,39 @@
+---
+layout: default
+title: Contact Burnaby Mountain Toastmasters
+---
+
+<div id="calendar"></div>
+
+<script type="text/javascript">
+    $('#calendar').fullCalendar({
+        events: [
+		{% for meeting in site.categories.meeting %}
+			{
+				title: "{{ meeting.title }}",
+				start: "{{ meeting.date | date: "%Y-%m-%d %H:%M:%S" }}",
+				url: "{{site.baseurl}}{{ meeting.url }}",
+				allDay: false,
+				color: "#104f68"
+			},
+		{% endfor %}
+		{% for event in site.categories.event %}
+			{
+				title: "{{ event.title }}",
+				start: "{{ event.date | date: "%Y-%m-%d %H:%M:%S" }}",
+				
+				{% if event.enddate %}
+				end: "{{ event.enddate | date: "%Y-%m-%d %H:%M:%S" }}",
+				{% endif %}
+				
+				url: "{{site.baseurl}}{{ event.url }}",
+				allDay: false,
+				color: "#821d24"
+			},
+		{% endfor %}
+		],
+		eventClick: function(calEvent, jsEvent, view){
+			window.location = calEvent.url;
+		}
+    });
+</script>

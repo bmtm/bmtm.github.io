@@ -1,0 +1,16 @@
+---
+layout: default
+title: Burnaby Mountain Toastmasters - Meeting Archive
+---
+
+<!-- meetings -->
+
+<ul class="meetings">
+{% for post in site.categories.meeting limit: 50 %}
+<li>
+	<img src="http://img.youtube.com/vi/{{ post.youtube }}/1.jpg" alt="Youtube Thumbnail" />
+	<h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+	{{ post.date | date: "%B %d, %Y" }}
+</li>
+{% endfor %}
+</ul>

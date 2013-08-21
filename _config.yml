@@ -1,0 +1,102 @@
+timezone: America/Vancouver
+permalink: /:categories/:title/
+baseurl: /bmtm
+
+prose:
+  rooturl: '_posts'
+  media: 'media'
+  metadata:
+    _posts/news:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "news"
+      - name: "category"
+        field:
+          element: "hidden"
+          value: "news"
+      - name: "author"
+        field:
+          element: "text"
+          label: "Author Name"
+          value: ""
+    _posts/members:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "member"
+      - name: "category"
+        field:
+          element: "hidden"
+          value: "member"
+      - name: "role"
+        field:
+          element: "select"
+          label: "ToastMasters Club Position"
+          placeholder: "Choose Position"
+          options:
+            - name: "Member"
+              value: "Member"
+            - name: "Club President"
+              value: "Club President"
+            - name: "Vice President Education"
+              value: "Vice President Education"
+            - name: "Vice President Membership"
+              value: "Vice President Membership"
+            - name: "Vice President Public Relations"
+              value: "Vice President Public Relations"
+            - name: "Treasurer"
+              value: "Treasurer"
+            - name: "Secretary"
+              value: "Secretary"
+            - name: "Sergeant at Arms"
+              value: "Sergeant at Arms"
+      - name: "facebookid"
+        field:
+          element: "text"
+          label: "Facebook Profile Name"
+          placeholder: "eg. zuck - This is used for your profile image (optional)"
+    _posts/meetings:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "meeting"
+      - name: "category"
+        field:
+          element: "hidden"
+          value: "meeting"
+      - name: date
+        field:
+          element: "text"
+          label: "Meeting Date/Time<br />- format as YYY-MM-DD HH:MM:SS - GMT Offset<br />- Note Hours are in 24 hr format<br />- Hours/Minutes/Seconds may be ommitted<br />- Vancouver time is -0700 or -0800 GMT Offset"
+      - name: "youtube"
+        field:
+          element: "text"
+          label: "Youtube Identifier"
+          placeholder: "Insert the end digits of a youtube link"
+      - name: "prepared_speeches"
+        field:
+          element: "text"
+          label: "Prepared Speeches"
+          placeholder: "eg. by Jack and Steve"
+      - name: "table_topics"
+        field:
+          element: "text"
+          label: "Table Topic Theme"
+    _posts/events:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "event"
+      - name: "category"
+        field:
+          element: "hidden"
+          value: "event"
+      - name: date
+        field:
+          element: "text"
+          label: "Event Date/Time<br />- format as YYY-MM-DD HH:MM:SS - GMT Offset<br />- Note Hours are in 24 hr format<br />- Hours/Minutes/Seconds may be ommitted<br />- Vancouver time is -0700 or -0800 GMT Offset"
+      - name: "enddate"
+        field:
+          element: "text"
+          label: "End Date/Time (Optional)"

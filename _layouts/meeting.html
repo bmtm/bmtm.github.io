@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<h1>{{ page.title }}</h1>
+<div class="byline">Held on {{ page.date | date: "%B %d, %Y" }}</div>
+{% if page.youtube %}
+<iframe src="//www.youtube.com/embed/{{ page.youtube }}" frameborder="0" allowfullscreen></iframe>
+{% endif %}
+
+<h2>Prepared Speeches</h2>
+{{ page.prepared_speeches }}
+
+<h2>Table Topics</h2>
+{{ page.table_topics }}
+
+{{ page.content | markdownify }}
