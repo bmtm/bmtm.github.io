@@ -1,1 +1,14 @@
-this is merely a test to see if i can upload this 
+---
+layout: default
+title: Burnaby Mountain Toastmasters - Meeting Archive
+---
+
+<!-- meetings -->
+
+<ul class="Trial">
+{% for post in site.categories.meeting limit: 50 %}
+<li>
+	<does it work ?
+</li>
+{% endfor %}
+</ul>
